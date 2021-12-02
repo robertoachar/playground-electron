@@ -12,8 +12,23 @@
   "files": [
     "src"
   ],
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
     "lint": "jest --config jest-eslint.config.js",
     "lint:watch": "jest --config jest-eslint.config.js --watch",
     "jest": "jest --config jest-test.config.js",
@@ -44,15 +59,17 @@
     "url": "https://github.com/robertoachar/playground-electron/issues"
   },
   "dependencies": {
-    "electron": "16.0.3",
     "esm": "3.2.25"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
     "@babel/eslint-parser": "7.16.3",
     "@babel/preset-env": "7.16.4",
+    "@electron-forge/cli": "6.0.0-beta.61",
+    "@electron-forge/maker-zip": "6.0.0-beta.61",
     "@types/jest": "27.0.3",
     "babel-jest": "27.4.2",
+    "electron": "16.0.3",
     "eslint": "8.3.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.3.0",
